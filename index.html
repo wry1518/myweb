@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="国之脊梁——中国科学家风采展：弘扬中国科学家的奉献精神与科学成就">
+    <title>国之脊梁——中国科学家风采展 | 首页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 全局导航栏 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">国之脊梁<span>·中国科学家风采展</span></a>
+            <nav class="main-nav" aria-label="主导航">
+                <ul>
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="yuan.html">袁隆平</a></li>
+                    <li><a href="qian.html">钱学森</a></li>
+                    <li><a href="yang.html">杨振宁</a></li>
+                    <li><a href="ding.html">丁肇中</a></li>
+                    <li><a href="tu.html">屠呦呦</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首屏 -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>国之脊梁 · 科学之光</h1>
+            <p class="hero-sub">仰望星空，脚踏实地——致敬把一生献给祖国与人民的科学家们</p>
+            <a href="#scientists" class="hero-btn">走近他们</a>
+        </div>
+    </section>
+
+    <!-- 引言 -->
+    <section class="intro container">
+        <p>
+            科学无国界，科学家有祖国。从让亿万人吃饱饭的稻田，到叩响宇宙之门的火箭；
+            从解开物质世界奥秘的方程，到拯救千万生命的青蒿——
+            他们以毕生心血铸就大国重器，以拳拳赤心挺起民族脊梁。
+        </p>
+    </section>
+
+    <!-- 科学家卡片 -->
+    <main id="scientists" class="container">
+        <h2 class="section-title">院士风采</h2>
+        <div class="cards">
+
+            <article class="card">
+                <img src="images/yuan.jpg?v=2" alt="袁隆平院士照片">
+                <div class="card-body">
+                    <h3>袁隆平</h3>
+                    <p class="card-tag">杂交水稻之父</p>
+                    <p class="card-desc">一稻济世，万家粮足。毕生追梦"禾下乘凉"，把论文写在祖国大地上。</p>
+                    <a href="yuan.html" class="card-btn">了解详情</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/qian.jpg" alt="钱学森院士照片">
+                <div class="card-body">
+                    <h3>钱学森</h3>
+                    <p class="card-tag">中国航天之父</p>
+                    <p class="card-desc">五年归国路，十年两弹成。以赤子之心，为祖国铸就航天伟业。</p>
+                    <a href="qian.html" class="card-btn">了解详情</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/yang.jpg" alt="杨振宁院士照片">
+                <div class="card-body">
+                    <h3>杨振宁</h3>
+                    <p class="card-tag">诺贝尔物理学奖得主</p>
+                    <p class="card-desc">宇称不守恒、杨-米尔斯规范场论，站上现代物理学之巅。</p>
+                    <a href="yang.html" class="card-btn">了解详情</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/ding.jpg" alt="丁肇中教授照片">
+                <div class="card-body">
+                    <h3>丁肇中</h3>
+                    <p class="card-tag">实验物理大师</p>
+                    <p class="card-desc">发现J粒子，揭示物质的深层奥秘，探索未知永不止步。</p>
+                    <a href="ding.html" class="card-btn">了解详情</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="images/tu.jpg?v=2" alt="屠呦呦研究员照片">
+                <div class="card-body">
+                    <h3>屠呦呦</h3>
+                    <p class="card-tag">青蒿素发现者</p>
+                    <p class="card-desc">一株青蒿，济世救人。让传统医药之光照亮世界。</p>
+                    <a href="tu.html" class="card-btn">了解详情</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <p>国之脊梁——中国科学家风采展 · 弘扬科学家精神，点亮科学梦想</p>
+        <p class="footer-note">本网站仅用于学习交流 · 人物图片来源于网络公开资料</p>
+    </footer>
+
+    <script>
+        // 平滑滚动：点击"走近他们"按钮时缓慢滑到卡片区域
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

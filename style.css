@@ -1,0 +1,563 @@
+/* =========================================================
+   style.css —— 国之脊梁·中国科学家风采展（全局样式）
+   ========================================================= */
+
+/* ---------- 变量与基础重置 ---------- */
+:root {
+    --accent: #8b0012;          /* 主强调色（默认：中国红） */
+    --accent-dark: #5e000c;
+    --accent-light: #f3d9dc;
+    --ink: #22252b;             /* 正文墨色 */
+    --muted: #6b7078;           /* 次要文字 */
+    --bg: #f7f8fa;              /* 页面背景 */
+    --card-bg: #ffffff;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(17, 24, 39, 0.10);
+    --shadow-hover: 0 14px 34px rgba(17, 24, 39, 0.18);
+    --font: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.75;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+/* ---------- 各详情页主题色 ---------- */
+body.theme-yuan {
+    --accent: #b8860b;
+    --accent-dark: #7a5a06;
+    --accent-light: #f5ecd2;   /* 稻田金黄 */
+}
+
+body.theme-qian {
+    --accent: #14508c;
+    --accent-dark: #0d3a68;
+    --accent-light: #d6e6f7;   /* 航天蓝 */
+}
+
+body.theme-yang {
+    --accent: #5b3a9e;
+    --accent-dark: #3f2770;
+    --accent-light: #e6ddf6;   /* 深邃紫 */
+}
+
+body.theme-ding {
+    --accent: #4a4f57;
+    --accent-dark: #2e3238;
+    --accent-light: #ece9df;   /* 科技灰暗金 */
+}
+
+body.theme-tu {
+    --accent: #2e7d5b;
+    --accent-dark: #1d5740;
+    --accent-light: #ddede4;   /* 青蒿绿 */
+}
+
+/* =========================================================
+   导航栏
+   ========================================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(20, 23, 28, 0.92);
+    backdrop-filter: blur(8px);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding: 14px 0;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #cfd3da;
+    margin-left: 8px;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    list-style: none;
+}
+
+.main-nav a {
+    display: block;
+    padding: 8px 16px;
+    color: #e7e9ee;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 999px;
+    transition: background 0.25s, color 0.25s;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+/* 当前页高亮 */
+.main-nav a.active {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* =========================================================
+   首屏 Hero
+   ========================================================= */
+.hero {
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(10, 14, 26, 0.55), rgba(10, 14, 26, 0.75)),
+        url("https://picsum.photos/seed/starrysky/1920/900") center/cover no-repeat;
+    color: #fff;
+}
+
+.hero-overlay {
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #dfe3ea;
+    letter-spacing: 3px;
+    margin-bottom: 36px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- 首页引言 ---------- */
+.intro {
+    padding: 56px 0 8px;
+    text-align: center;
+}
+
+.intro p {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--muted);
+}
+
+/* ---------- 通用区块标题 ---------- */
+.section-title {
+    text-align: center;
+    font-size: 1.7rem;
+    letter-spacing: 6px;
+    margin: 40px 0 30px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+/* =========================================================
+   首页卡片
+   ========================================================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 26px;
+    padding-bottom: 64px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px 22px 26px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body h3 {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+}
+
+.card-tag {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 8px 0 12px;
+    padding: 3px 14px;
+    font-size: 0.82rem;
+    color: var(--accent-dark);
+    background: var(--accent-light);
+    border-radius: 999px;
+}
+
+.card-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    flex: 1;
+}
+
+.card-btn {
+    margin-top: 16px;
+    text-align: center;
+    padding: 9px 0;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    transition: opacity 0.25s;
+}
+
+.card-btn:hover {
+    opacity: 0.85;
+}
+
+/* =========================================================
+   详情页：人物头部（左右分栏，窄屏自动换行）
+   ========================================================= */
+.profile-hero {
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    color: #fff;
+    padding: 64px 0;
+}
+
+.profile-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-photo {
+    flex: 0 0 280px;
+    max-width: 100%;
+}
+
+.profile-photo img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    margin: 0 auto;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 260px;
+}
+
+.profile-info h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: 6px;
+    margin-bottom: 6px;
+}
+
+.profile-sub {
+    font-size: 1.05rem;
+    opacity: 0.92;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.profile-meta {
+    list-style: none;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+.profile-meta li {
+    padding: 2px 0;
+}
+
+/* ---------- 详情页正文 ---------- */
+.detail-section {
+    padding: 48px 0 8px;
+}
+
+.detail-section h2 {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 6px solid var(--accent);
+}
+
+.detail-section p {
+    margin-bottom: 14px;
+    color: #33363c;
+    text-align: justify;
+}
+
+/* 贡献卡片 */
+.contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.contrib-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contrib-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contrib-card h3 {
+    color: var(--accent-dark);
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+}
+
+.contrib-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* =========================================================
+   经典语录 blockquote
+   ========================================================= */
+blockquote.quote {
+    position: relative;
+    margin: 40px 0;
+    padding: 44px 48px 30px;
+    background: var(--accent-light);
+    border-left: 8px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--ink);
+}
+
+blockquote.quote::before {
+    content: "\201C";               /* 大引号 “ */
+    position: absolute;
+    top: -6px;
+    left: 18px;
+    font-size: 5.5rem;
+    line-height: 1;
+    font-family: Georgia, "Microsoft YaHei", serif;
+    color: var(--accent);
+    opacity: 0.55;
+}
+
+blockquote.quote p {
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 8px;
+}
+
+blockquote.quote footer {
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-align: right;
+}
+
+/* =========================================================
+   上一位 / 下一位 / 返回主页
+   ========================================================= */
+.pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 40px 0 56px;
+}
+
+.pager a {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.pager a:hover {
+    transform: translateY(-3px);
+}
+
+.pager .nav-btn {
+    background: var(--accent);
+    color: #fff;
+}
+
+.pager .home-btn {
+    background: transparent;
+    color: var(--accent-dark);
+    border: 2px solid var(--accent);
+}
+
+/* =========================================================
+   页脚
+   ========================================================= */
+.site-footer {
+    background: #171a20;
+    color: #b9bec7;
+    text-align: center;
+    padding: 28px 16px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.site-footer .footer-note {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: #7c828c;
+}
+
+/* =========================================================
+   响应式设计
+   ========================================================= */
+@media (max-width: 768px) {
+
+    /* 导航栏自动换行、居中 */
+    .header-inner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+    }
+
+    /* 首屏高度压缩 */
+    .hero {
+        min-height: 46vh;
+    }
+
+    /* 卡片变单列 */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* 详情页人物头部改"上图下文" */
+    .profile-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 26px;
+    }
+
+    .profile-photo {
+        flex: none;
+    }
+
+    .profile-meta li {
+        text-align: center;
+    }
+
+    /* 语录内边距收窄 */
+    blockquote.quote {
+        padding: 40px 24px 24px;
+    }
+
+    blockquote.quote::before {
+        font-size: 4rem;
+    }
+
+    /* 翻页按钮铺满 */
+    .pager {
+        flex-direction: column;
+    }
+
+    .pager a {
+        width: 100%;
+        text-align: center;
+    }
+}
